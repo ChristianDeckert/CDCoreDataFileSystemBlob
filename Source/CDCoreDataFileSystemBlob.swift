@@ -7,11 +7,11 @@ extension URL {
     }
 }
 
-struct CDCoreDataFileSystemBlob {
+public struct CDCoreDataFileSystemBlob {
     
-    static var pattern: String { return "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}" }
+    public static var pattern: String { return "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}" }
     
-    static func extractUUID(from objectId: NSManagedObjectID) -> String {
+    public static func extractUUID(from objectId: NSManagedObjectID) -> String {
         
         let id = objectId.uriRepresentation().absoluteString
         do {
@@ -28,11 +28,11 @@ struct CDCoreDataFileSystemBlob {
         return objectId.uriRepresentation().absoluteString
     }
     
-    static var imageStoreDirectoryUrl: URL {
+    public static var imageStoreDirectoryUrl: URL {
         return documentsDirUrl.appendingPathComponent("CDCoreDataFileSystemBlob", isDirectory: true)
     }
     
-    static var documentsDirUrl: URL {
+    public static var documentsDirUrl: URL {
         return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     }
     
@@ -47,7 +47,7 @@ struct CDCoreDataFileSystemBlob {
     }
     
     @discardableResult
-    static func store(data: Data, for key: String, uuid: String, pId: String) -> Bool {
+    public static func store(data: Data, for key: String, uuid: String, pId: String) -> Bool {
         do {
             let dirPath = directoryUrl(for: uuid, pId: pId).path
             
@@ -65,13 +65,13 @@ struct CDCoreDataFileSystemBlob {
         }
     }
     
-    static func data(for key: String, uuid: String, pId: String) -> Data? {
+    public static func data(for key: String, uuid: String, pId: String) -> Data? {
         let path = storeUrl(for: key, uuid: uuid, pId: pId).path
         return FileManager.default.contents(atPath: path)
     }
     
     @discardableResult
-    static func delete(for key: String, uuid: String, pId: String) -> Bool {
+    public static func delete(for key: String, uuid: String, pId: String) -> Bool {
         do {
             try FileManager.default.removeItem(atPath: storeUrl(for: key, uuid: uuid, pId: pId).path)
             return true
@@ -80,7 +80,7 @@ struct CDCoreDataFileSystemBlob {
         }
     }
     @discardableResult
-    static func deleteAll(uuid: String, pId: String) -> Bool {
+    public static func deleteAll(uuid: String, pId: String) -> Bool {
         do {
             try FileManager.default.removeItem(atPath: directoryUrl(for: uuid, pId: pId).path)
             return true
@@ -89,7 +89,7 @@ struct CDCoreDataFileSystemBlob {
         }
     }
     
-    static func reset() -> Bool {
+    public static func reset() -> Bool {
         do {
             try FileManager.default.removeItem(atPath: imageStoreDirectoryUrl.absoluteString)
             return true
@@ -100,35 +100,35 @@ struct CDCoreDataFileSystemBlob {
 
 }
 
-extension NSManagedObjectID {
-    var uuidString: String {
+public extension NSManagedObjectID {
+    public var uuidString: String {
         return CDCoreDataFileSystemBlob.extractUUID(from: self)
     }
 }
 
-extension NSManagedObject {
+public extension NSManagedObject {
 
-    var objectUUID: String {
+    public var objectUUID: String {
         return objectID.uuidString
     }
     
-    var pId: String {
+    public var pId: String {
         return (objectID.uriRepresentation().absoluteString as NSString).lastPathComponent
     }
     
-    @discardableResult func store(data: Data, for key: String) -> Bool {
+    @discardableResult public func store(data: Data, for key: String) -> Bool {
         return CDCoreDataFileSystemBlob.store(data: data, for: key, uuid: objectUUID, pId: pId)
     }
     
-    func data(for key: String) -> Data? {
+    public func data(for key: String) -> Data? {
         return CDCoreDataFileSystemBlob.data(for: key, uuid: objectUUID, pId: pId)
     }
     
-    func deleteData(for key: String) {
+    public func deleteData(for key: String) {
         CDCoreDataFileSystemBlob.delete(for: key, uuid: objectUUID, pId: pId)
     }
     
-    func deleteAllData() {
+    public func deleteAllData() {
         CDCoreDataFileSystemBlob.deleteAll(uuid: objectUUID, pId: pId)
     }
     
