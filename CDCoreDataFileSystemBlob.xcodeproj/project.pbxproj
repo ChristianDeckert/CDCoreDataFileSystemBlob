@@ -15,6 +15,7 @@
 		AAB2355020E5103D00D09764 /* CDCoreDataFileSystemBlobTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB2354F20E5103D00D09764 /* CDCoreDataFileSystemBlobTests.swift */; };
 		AAB2355C20E510B500D09764 /* CDCoreDataFileSystemBlob.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB2355B20E510B500D09764 /* CDCoreDataFileSystemBlob.swift */; };
 		AAB2355E20E5110C00D09764 /* CDCoreDataFileSystemBlob.podspec in Resources */ = {isa = PBXBuildFile; fileRef = AAB2355D20E5110C00D09764 /* CDCoreDataFileSystemBlob.podspec */; };
+		AAB2356020E5120700D09764 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AAB2355F20E5120700D09764 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		AAB2355120E5103D00D09764 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAB2355B20E510B500D09764 /* CDCoreDataFileSystemBlob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDCoreDataFileSystemBlob.swift; sourceTree = "<group>"; };
 		AAB2355D20E5110C00D09764 /* CDCoreDataFileSystemBlob.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CDCoreDataFileSystemBlob.podspec; sourceTree = "<group>"; };
+		AAB2355F20E5120700D09764 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 		AAB2352E20E5103B00D09764 = {
 			isa = PBXGroup;
 			children = (
+				AAB2355F20E5120700D09764 /* README.md */,
 				AAB2355D20E5110C00D09764 /* CDCoreDataFileSystemBlob.podspec */,
 				AAB2355A20E5107B00D09764 /* Source */,
 				AAB2353920E5103B00D09764 /* ExampleApp */,
@@ -193,6 +196,7 @@
 			files = (
 				AAB2355E20E5110C00D09764 /* CDCoreDataFileSystemBlob.podspec in Resources */,
 				AAB2354520E5103D00D09764 /* LaunchScreen.storyboard in Resources */,
+				AAB2356020E5120700D09764 /* README.md in Resources */,
 				AAB2354220E5103D00D09764 /* Assets.xcassets in Resources */,
 				AAB2354020E5103B00D09764 /* Main.storyboard in Resources */,
 			);
