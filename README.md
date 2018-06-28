@@ -11,7 +11,7 @@ Associate data (blob) to NSManagedObjects and store it to file system instead of
 
 ##### Storing data
 
-```
+```swift
 let cat: NSManagedObject = [...] // a valid stored managed object from your database
 let imageData: Data = nsImage.tiffRepresentation
 cat.store(data: imageData, for: "pictureOfCat") // store data for key "pictureOfCat"
