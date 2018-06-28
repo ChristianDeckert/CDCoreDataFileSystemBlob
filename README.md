@@ -19,7 +19,7 @@ cat.store(data: imageData, for: "pictureOfCat") // store data for key "pictureOf
 
 ##### Loading data
 
-```
+```swift
 let cat: NSManagedObject = [...] // a valid object from your database
 guard let imageData = cat.data(for: "pictureOfCat") else { return } // load data for key "pictureOfCat"
 let pictureOfCat = NSImage(data: imageData)
@@ -27,7 +27,7 @@ let pictureOfCat = NSImage(data: imageData)
 
 ##### Deleting
 
-```
+```swift
 cat.deleteData(for: "pictureOfCat")
 cat.deleteAllData() // for all keys (basically removes whole cache folder from file system)
 ```
